@@ -338,7 +338,7 @@ if(strlen($notifications_off)) {
 }
 
 	echo "<P>"; ?>
-<img src="https://static-web.last.fm/static/images/logo.png" alt="this ugly code hacked into submission by lozzd" align="right">
+<img src="https://centreon-wordpress.s3.amazonaws.com/wp-content/uploads/2015/01/centreon_logo.png" alt="centreon" align="right">
 
 <?
 	if ($_GET["debug"] == true) {

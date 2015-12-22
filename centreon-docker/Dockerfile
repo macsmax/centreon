@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER Max Mongardini <max@last.fm>
+MAINTAINER Max Mongardini <max@mongardini.it>
 RUN apt-get update
 RUN apt-get -y upgrade
 RUN apt-get update
@@ -46,10 +46,10 @@ ADD files/centreon-engine_install /usr/local/centreon/centreon-core/www/install/
 ADD files/centreon-broker_install /usr/local/centreon/centreon-core/www/install/var/brokers/centreon-broker
 ADD files/install_conf_php /usr/local/centreon/centreon-core/www/install/install.conf.php
 
-# centreon clapi
-WORKDIR /root/centreon
-ENV CENTREON_CLAPI 1.8.0
-RUN wget https://s3-eu-west-1.amazonaws.com/centreon-download/public/Modules/CLAPI/centreon-clapi-${CENTREON_CLAPI}.tar.gz && tar zxvf centreon-clapi-${CENTREON_CLAPI}.tar.gz && cd centreon-clapi-${CENTREON_CLAPI}/ && ./install.sh -u /etc/centreon/centreon-core
+## centreon clapi
+#WORKDIR /root/centreon
+#ENV CENTREON_CLAPI 1.8.0
+#RUN wget https://s3-eu-west-1.amazonaws.com/centreon-download/public/Modules/CLAPI/centreon-clapi-${CENTREON_CLAPI}.tar.gz && tar zxvf centreon-clapi-${CENTREON_CLAPI}.tar.gz && cd centreon-clapi-${CENTREON_CLAPI}/ && ./install.sh -u /etc/centreon/centreon-core
 
 # nagios plugins
 WORKDIR /root/centreon
