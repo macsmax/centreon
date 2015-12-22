@@ -42,20 +42,20 @@ Now you will be able to login to the interface with the admin user and password 
 Once logged in, there are a couple of tweaks to have a working configuration:
 
 * Go to Configuration -> Monitoring Engines -> main.cfg (left pane) -> Centreon Engine CFG 1
-** Change "Log file" to "/var/log/centreon/centengine.log"
-** On the Debug tab, change "Debug File" to "/var/log/centreon/centengine.debug"
-** Hit Save
+  * Change "Log file" to "/var/log/centreon/centengine.log"
+  * On the Debug tab, change "Debug File" to "/var/log/centreon/centengine.debug"
+  * Hit Save
 
 * Go to Configuration -> Centreon -> Centreon-Broker Configuration (left pane) -> Central Broker Master
-** In the Temporary tab, change "File Path" to "/usr/local/centreon/tmp/central-broker-master.tmp"
-** Hit Save
+  * In the Temporary tab, change "File Path" to "/usr/local/centreon/tmp/central-broker-master.tmp"
+  * Hit Save
 
 * Go to Configuration -> Centreon -> Centreon-Broker Configuration (left pane) -> Central Broker rrd
-** Hit Save
+  * Hit Save
 
 * Go to Configuration -> Monitoring Engines
-** Select all the checkboxes
-** Hit "Export"
+  * Select all the checkboxes
+  * Hit "Export"
 
 * Restart the docker container
 	docker restart centreon_centreon_1
