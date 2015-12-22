@@ -1,0 +1,17 @@
+##
+## Section add by Centreon Install Setup
+##
+
+Alias /centreon /usr/local/centreon/centreon-core/www
+<Directory "/usr/local/centreon/centreon-core/www/">
+    Options Indexes
+    AllowOverride AuthConfig Options
+    Require all granted
+</Directory>
+
+Alias /status /usr/local/centreon/status
+<Directory "/usr/local/centreon/status/">
+    Options Indexes
+    AllowOverride AuthConfig Options
+    Require all granted
+</Directory>

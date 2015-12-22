@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Ops restricted"
+# Optional line:
+AuthBasicProvider file
+AuthUserFile /etc/centreon/status_access
+Require user ops

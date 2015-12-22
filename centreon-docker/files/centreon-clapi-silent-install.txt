@@ -1,0 +1,2 @@
+## Centreon config files
+CENTREON_CONF="/etc/centreon/centreon-core"
