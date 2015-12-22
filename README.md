@@ -30,8 +30,11 @@ Here you will need the MySQL root user password, this is located in the docker-c
 
 Most of the field are already pre-set for this setup, with the exception of the following values:
 > Admin user and password: *You pick...*
+
 > Database Host Address (default: localhost): *mysql*
+
 > Root password: *[check the docker-compose.yml file]*
+
 > centreon db user and passwords: *up to you...*
 
 Once the wizard is finished, it will start from the beginning again. This is a bug in the installation part when run the way this is setup.
