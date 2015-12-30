@@ -10,7 +10,7 @@ centreon:
    - mysql
   privileged: true
 mysql:
-  image: mysql:latest
+  image: mariadb:latest
   ports:
    - "13306:3306"
   volumes:
