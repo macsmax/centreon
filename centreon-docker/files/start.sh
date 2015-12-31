@@ -30,7 +30,7 @@ exim-list(){
 
 [ x$LOCAL_DOMAINS = x ] && LOCAL_DOMAINS=localhost:localhost.localdomain
 [ x$RELAY_DOMAINS = x ] && RELAY_DOMAINS=$LOCAL_DOMAINS
-[ x$MAILNAME = x ]      && MAILNAME=centreon.util96
+[ x$MAILNAME = x ]      && MAILNAME=centreon
 [ x$RELAY_NETWORKS = x ] && RELAY_NETWORKS=127.0.0.0/24:127.1.0.0/24
 [ x$SMARTHOST = x ]      && SMARTHOST=smtp
 [ x$REDIRECT_TO = x ]      && REDIRECT_TO=root@localhost
@@ -43,6 +43,7 @@ sed -e "s|%LOCAL_DOMAINS%|$(exim-list $LOCAL_DOMAINS)|g" \
     /etc/exim4/exim4.conf.tpl \
     >/etc/exim4/exim4.conf
 
+chown centreon:centreon /var/log/centreon
 
 sysctl -w kernel.msgmnb=655360 # without that, ndo2db will fail to work and no services or hosts will show up in Centreon, Monitoring tab
 supervisord -n -c /etc/supervisord.conf -e debug 

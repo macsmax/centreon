@@ -6,6 +6,20 @@ The mysql container will have the mysql data mapped to /var/lib/centreon/mysql a
 
 The centreon container will have /var/log/centreon mapped and will expose ssh on port 2222 and the UI on 8080.
 
+## Configuration
+
+* Add your ssh public key to centreon-docker/files/authorized_keys
+
+* Edit the file centreon-docker/files/start.sh with the correct smtp smart-host settings for exim
+
+```
+[ x$SMARTHOST = x ]      && SMARTHOST=smtp
+[ x$REDIRECT_TO = x ]      && REDIRECT_TO=root@localhost
+```
+* Change and copy the mysql password set in docker-compose.yml
+
+* Add any custom checks to centreon-docker/nagios-plugins/
+
 ## Building the image
 
 	docker-compose build 
@@ -44,27 +58,28 @@ To bypass this, restart the container once the installation wizard goes to the b
 Now you will be able to login to the interface with the admin user and password set
 Once logged in, there are a couple of tweaks to have a working configuration:
 
-* Go to Configuration -> Monitoring Engines -> main.cfg (left pane) -> Centreon Engine CFG 1
+* Go to Configuration -> Pollers -> Engine Configuration (left pane) -> Centreon Engine CFG 1
   * Change "Log file" to "/var/log/centreon/centengine.log"
   * On the Debug tab, change "Debug File" to "/var/log/centreon/centengine.debug"
   * Hit Save
 
-* Go to Configuration -> Centreon -> Centreon-Broker Configuration (left pane) -> Central Broker Master
-  * In the Temporary tab, change "File Path" to "/usr/local/centreon/tmp/central-broker-master.tmp"
+* Go to Configuration -> Pollers -> Broker Configuration (left pane) -> Central Broker master
   * Hit Save
 
-* Go to Configuration -> Centreon -> Centreon-Broker Configuration (left pane) -> Central Broker rrd
+* Go to Configuration -> Pollers -> Broker Configuration (left pane) -> Central Broker rrd
   * Hit Save
 
-* Go to Configuration -> Monitoring Engines
+* Go to Configuration -> Pollers -> Central Poller, Action icon (right)
   * Select all the checkboxes
   * Hit "Export"
 
 * Restart the docker container
 	docker restart centreon_centreon_1
  
+## TODO
 
-
+* Create a supervisord friendly start script for cbd
+* Check why /var/log/centreon is not owned by centreon, current workaround in start.sh
 
 
 
