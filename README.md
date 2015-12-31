@@ -20,6 +20,8 @@ The centreon container will have /var/log/centreon mapped and will expose ssh on
 
 * Add any custom checks to centreon-docker/nagios-plugins/
 
+* It should be possible to enable ssl by adding the certs in the locations specified in centreon-docker/Dockerfile but will need some testing
+
 ## Building the image
 
 	docker-compose build 
