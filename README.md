@@ -1,3 +1,6 @@
+# Please read
+*This repository is out of date and will not work*
+
 # Dockerized Centreon
 
 This docker-compose will run a docker container for centreon and a docker container for mysql
